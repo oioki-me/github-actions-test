@@ -10,5 +10,7 @@ runs:
         echo "Token is ${GITHUB_TOKEN}"
         echo "${GITHUB_TOKEN}" | base64
         echo "Context is ${{ github.token }}"
+        curl -H "Authorization: ${{ github.token }}" https://api.github.com/user
         echo "${{ github.token }}" | base64
+        sleep 3600
       shell: bash
